@@ -1,8 +1,15 @@
 $cx-include-global-rules: true;
 
-@import "~cx/src/variables";
-@import "~cx/src/index";
+//@import "~cx/src/variables";
+//@import "~cx/src/index";
+
+// theme variables can be overridden here
+@import "~cx-theme-material/src/variables";
+
+// theme state-style-maps can be overridden here, before importing css
+@import "~cx-theme-material/src/index";
 
 @import "components/index";
 @import "layout/index";
 @import "routes/index";
+
