@@ -1,7 +1,6 @@
 export const types = [
 {       id: 'learn',
         name: 'Learning mode - all questions / unlimited time'
-
 }, {
         id: 'quick',
         name: 'Quick test - 20 questions / 15 minutes'

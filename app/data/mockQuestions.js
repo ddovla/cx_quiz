@@ -1,13 +1,15 @@
-mockQuestions = [
+
+export const mockQuestions = [
 {
     id: 1,
     type: 'single',
     question: 'What is the name of central data repository used in Cx?',
-    answers: [  {id: 'A', answer: 'Storage'}, 
-                {id: 'B', answer: 'Store'}, 
-                {id: 'C', answer: 'StoredData'}, 
-                {id: 'D', answer: 'mainTable'}
+    answers: [  {id: 'A', answer: 'Storage', checked: false}, 
+                {id: 'B', answer: 'Store', checked: false}, 
+                {id: 'C', answer: 'StoredData', checked: false}, 
+                {id: 'D', answer: 'mainTable', checked: false}
             ],
+    answered: [],        
     correct: ['B'],
     rationale: 'Application state in Cx is held in central data repository called Store.'
 }, {
@@ -20,7 +22,7 @@ mockQuestions = [
                 {id: 'D', answer: 'Data binding is a process of connecting front-end with the data on the server (back-end'}
             ],
     correct: ['A'],
-    rationale: 'Data binding is a process of connecting the application state to the UI. If the connection is successful, data changes will be reflected in the UI and user actions will be properly translated into data changes. There are multiple ways of applying data to the widgets.'
+    rationale: 'Data binding is a process of connecting the application state to the UI. If the connection is successful, data changes will be reflected in the UI and user actions will be properly translated into data changes.'
 }, {
     id: 3,
     type: 'truefalse',

@@ -12,7 +12,7 @@
 }
 
 .kpi-main {
-   height: 115px;
+   height: 240px;
 }
 
 .kpi-value {
@@ -27,26 +27,4 @@
    text-transform: uppercase;
    font-weight: bold;
    margin-top: -10px;
-}
-
-.donut-text {
-   font-size: 20px;
-}
-
-.line-marker circle {
-   stroke: white;
-   stroke-width: 4px;
-   transition: stroke 0.3s ease-in-out;
-}
-
-.line-marker circle:hover {
-   stroke: #99e4ee;
-}
-
-.cxe-numericaxis-label {
-   font-size: 10px;
-}
-
-.cxe-categoryaxis-label {
-   font-size: 10px;
 }
