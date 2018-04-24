@@ -10,24 +10,26 @@ export default <cx>
 
     <Section
         mod="card"
+        style="margin: auto; width: 65%"
     > 
       <h3>Before we start</h3>
       <p ws>
         CxJS Quiz is a fun way of assesing your knowldge about CxJS framework, and perhaps an opportunity to learn some new things. 
         There are a couple of quiz modes you can choose between. They are self explanatory...
       </p>
-      <h3>Please select a quiz type of your choice:</h3>
-      <FlexRow spacing target="tablet" putInto="footer">
+      <h4>Please select a quiz type of your choice:</h4>
+
         <LookupField
             label="Quiz Type"
-            value-bind="$page.type.id"
-            text-bind="$page.type.name"
-            options-bind="$page.types"
+            value-bind="test.type.id"
+            text-bind="test.type.name"
+            options-bind="test.types"
             autoFocus
+            style="width: auto; min-width: 140px"
         />
-        <Button mod="primary"> Start Quiz!</Button> 
-        <TextField label="ime" value-bind="tekst.ime" />
-      </FlexRow>  
+      <br />
+      <br />
+        <Button mod="primary"> Start Quiz!</Button>   
    </Section>
 </div>
 </cx>
