@@ -4,12 +4,12 @@ export const mockQuestions = [
     id: 1,
     type: 'single',
     question: 'What is the name of central data repository used in Cx?',
-    answers: [  {id: 'A', answer: 'Storage', checked: false}, 
-                {id: 'B', answer: 'Store', checked: false}, 
-                {id: 'C', answer: 'StoredData', checked: false}, 
-                {id: 'D', answer: 'mainTable', checked: false}
+    answers: [  {id: 'A', answer: 'Storage'}, 
+                {id: 'B', answer: 'Store'}, 
+                {id: 'C', answer: 'StoredData'}, 
+                {id: 'D', answer: 'mainTable'}
             ],
-    answered: [],        
+    answered: [''],        
     correct: ['B'],
     rationale: 'Application state in Cx is held in central data repository called Store.'
 }, {
@@ -21,6 +21,7 @@ export const mockQuestions = [
                 {id: 'C', answer: 'Data binding is a way of managing data in the browser local storage'}, 
                 {id: 'D', answer: 'Data binding is a process of connecting front-end with the data on the server (back-end'}
             ],
+    answered: [''],            
     correct: ['A'],
     rationale: 'Data binding is a process of connecting the application state to the UI. If the connection is successful, data changes will be reflected in the UI and user actions will be properly translated into data changes.'
 }, {
@@ -30,17 +31,19 @@ export const mockQuestions = [
     answers: [  {id: 'A', answer: 'True'}, 
                 {id: 'B', answer: 'False'}, 
             ],
+    answered: [''],         
     correct: ['A'],
     rationale: 'See Controllers/Callback Methods in Cx docs.'
 }, {
     id: 4,
     type: 'multiple',
-    question: 'Select all proper Cx widgets from the given list:',
-    answers: [  {id: 'A', answer: 'GroupField'}, 
-                {id: 'B', answer: 'LookupField'}, 
-                {id: 'C', answer: 'Switch'}, 
-                {id: 'D', answer: 'PieCharts'}
+    question: 'Select all properly named Cx widgets from the given list:',
+    answers: [  {id: 'A', answer: 'GroupField', checked: false}, 
+                {id: 'B', answer: 'LookupField', checked: false}, 
+                {id: 'C', answer: 'Switch', checked: false}, 
+                {id: 'D', answer: 'PieCharts', checked: false}
             ],
+    answered: [''],             
     correct: ['B','C'],
     rationale: 'GroupField and PieCharts are incorrect. Proper names of these widgets are FieldGroup and PieChart.'
 }, {
@@ -50,7 +53,20 @@ export const mockQuestions = [
     answers: [  {id: 'A', answer: 'True'}, 
                 {id: 'B', answer: 'False'}
             ],
+    answered: [],        
     correct: ['B'],
     rationale: 'Overlays are page elements displayed on top of the main UI'
+}, {
+    id: 6,
+    type: 'multiple',
+    question: 'Triggers are used to (select two most appropriate answers):',
+    answers: [  {id: 'A', answer: 'Calculate data based on the other data', checked: false}, 
+                {id: 'B', answer: 'Invoke methods defined higher in the ancestor controller tree', checked: false}, 
+                {id: 'C', answer: 'Load data from the server on selection change', checked: false}, 
+                {id: 'D', answer: 'Implement complex data behavior', checked: false}
+            ],
+    answered: [''],             
+    correct: ['C','D'],
+    rationale: 'GroupField and PieCharts are incorrect. Proper names of these widgets are FieldGroup and PieChart.'
 }
 ];
