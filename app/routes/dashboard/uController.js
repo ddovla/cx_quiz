@@ -1,6 +1,7 @@
 import { Controller } from 'cx/ui';
 
 export default class uController extends Controller {
+
     init() {
         this.addComputable(
             "mainRecord.answeredM",

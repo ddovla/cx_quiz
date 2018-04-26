@@ -8,12 +8,13 @@ export default class extends Controller {
         let items = this.store.get("questions.items");
         // Reset the list to default data if it's empty
         if (!items || !items.length) {
-            items = mockQuestions.slice();
+            items = mockQuestions //.slice();
             this.store.set("questions.items", items);
         }
 
         this.store.init("testType", { id: "standard" });
         this.store.init("timer", { start: "0" });
+        this.store.init("questions", { current: "Q1" });
 
     }
 }

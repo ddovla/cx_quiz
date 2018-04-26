@@ -12,10 +12,20 @@ export default <cx>
         mod="card"
         style="margin: auto; width: 65%"
     > 
-      <h3>Before we start</h3>
+      <h3>Before You Start</h3>
       <p ws>
         CxJS Quiz is a fun way of assesing your knowldge about CxJS framework, and perhaps an opportunity to learn some new things. 
-        There are a couple of quiz modes you can choose between. They are self explanatory...
+        There are a couple of quiz modes you can choose between: 
+      </p>
+      <p>
+        <strong>Learning mode</strong> - You get the access to all the questions, and unlimited time for answering them. Correct answers are provided straight away.
+        <br />
+        <br />
+        <strong>Quick test</strong> - In this mode, you'll get 20 random questions.The time is limited for 15 min. Results and correct answers are provided at the end of quiz.
+        <br />
+        <br />
+        <strong>Standard test</strong> - The same as the Quick test but you have to answer 40 question in 35 minutes.
+        <br />
       </p>
       <h4>Please select a quiz type of your choice:</h4>
 
@@ -29,6 +39,7 @@ export default <cx>
         />
       <br />
       <br />
+      <TextField label="Question" value-bind="questions.items.q1.question" mode="view" emptyText="n/a" />
         <Button mod="primary"> Start Quiz!</Button>   
    </Section>
 </div>
