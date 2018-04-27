@@ -28,3 +28,17 @@
    font-weight: bold;
    margin-top: -10px;
 }
+
+.tabs {
+    padding: 12px;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: #f7f5f5;
+    width: 450px;
+  
+    & > * {
+      margin: 5px;
+    }
+  }

@@ -1,6 +1,6 @@
 import { HtmlElement, Section, FlexRow, TextField, Checkbox, Text, Radio } from 'cx/widgets';
 import { LabelsLeftLayout, Repeater, Rescope } from 'cx/ui';
-import { PureContainer, Sandbox, HScroller, Tab } from 'cx/widgets';
+import { PureContainer, Sandbox, HScroller, Tab, Button, MsgBox } from 'cx/widgets';
 import { Store, computable } from "cx/data";
 import Controller from './Controller';
 import uController from './uController'
@@ -10,27 +10,19 @@ export default <cx>
   <h2 putInto="header">Quiz - Questions</h2>
 
 
-
   <div controller={Controller}>
     <TextField label="Quiz type:" value-bind="test.type.name" mode="view" emptyText="n/a" style="width: auto" />
     <br />
-    <TextField label="Question" value-bind="tekst1.ime" mode="view" emptyText="n/a" />
+    <TextField label="Question" value-bind="questions.current" mode="view" emptyText="n/a" />
+    <br />
     <br />
 
-      <div preserveWhitespace>
-        <Radio
-          value={{ bind: "questions.current", defaultValue: "Q1" }}
-          option="Q1"
-        >
-          1st
-        </Radio>
-        <Radio value-bind="questions.current" option="Q2">
-          2nd 
-        </Radio>
-        <Radio value-bind="questions.current" option="Q3">
-          3rd
-        </Radio>
-      </div>
+    <HScroller class="tabs">
+      <Repeater records-bind="questions.list">
+        <Tab tab-bind="$record.qid" value-bind="questions.current" mod="line" text-tpl="Question {$record.qid}">
+        </Tab>
+      </Repeater>
+    </HScroller>
 
 
     <Sandbox
@@ -38,9 +30,6 @@ export default <cx>
       storage-bind="questions.items"
       recordName="mainRecord"
     >
-
-       {/* <Text value-tpl="rez: {questions.current} {questions.items.Q1.id} {mainRecord.id}. {mainRecord.question}" /> */}
-
       <div controller={uController}>
         <div layout={LabelsLeftLayout}>
           <br />
@@ -54,13 +43,16 @@ export default <cx>
             <br />
           </Repeater>
           <br />
-          <br />
-          <Text value-tpl="You have choosen: {mainRecord.answered}!" />
           <hr />
+          <Text value-tpl="You have choosen: {mainRecord.answered}!" />
         </div>
       </div>
-    </Sandbox>
+    </Sandbox> 
 
+    <div class="tabs">
+        <Button mode="hollow" onClick="goToPreviousQ" style="width:100px"> Previous </Button>
+        <Button mode="hollow" onClick="goToNextQ" style="width:100px"> Next </Button>
+    </div>
 
     {/* <Repeater records-bind="questions.items" recordAlias="mainRecord">
       <div controller={uController}>
