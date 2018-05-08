@@ -5,7 +5,7 @@ import AppLayout from '../layout';
 
 import Default from './default';
 import About from './about';
-import Dashboard from './dashboard';
+import Learning from './learning';
 import UserRoutes from './users';
 
 
@@ -23,8 +23,8 @@ export default <cx>
         <Route route="~/about" url:bind="url">
             <About/>
         </Route>
-       <Route route="~/dashboard" url:bind="url">
-          <Dashboard/>
+       <Route route="~/learning" url:bind="url">
+          <Learning/>
        </Route>
        <UserRoutes/>
        <Section title="Page Not Found" mod="card">

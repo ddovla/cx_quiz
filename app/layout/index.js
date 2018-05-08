@@ -26,7 +26,7 @@ export default <cx>
          <ContentPlaceholder name="header"/>
       </header>
       <aside class="aside">
-         <h1>Cx App</h1>
+         <h1>CxJS QUIZ</h1>
          <dl>
             <dt>
                App
@@ -37,23 +37,23 @@ export default <cx>
                </Link>
             </dd>
             <dd>
-               <Link href="~/dashboard" url-bind="url">
-                  Dashboard
-               </Link>
-            </dd>
-            <dd>
-               <Link href="~/about" url-bind="url">
-                  About
+               <Link href="~/learning" url-bind="url">
+                  Learning
                </Link>
             </dd>
          </dl>
          <dl>
             <dt>
-               Admin
+               Help
             </dt>
             <dd>
                <Link href="~/users" url-bind="url" match="prefix">
-                  Users
+                  Useful links
+               </Link>
+            </dd>
+            <dd>
+               <Link href="~/about" url-bind="url">
+                  About
                </Link>
             </dd>
          </dl>

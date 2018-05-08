@@ -1,4 +1,4 @@
-import {LookupField, Button, FlexRow, HtmlElement, Link, Section, TextField} from 'cx/widgets';
+import {LookupField, LinkButton, FlexRow, HtmlElement, Link, Section, TextField} from 'cx/widgets';
 import Controller from './Controller';
 
 export default <cx>
@@ -11,8 +11,10 @@ export default <cx>
     <Section
         mod="card"
         style="margin: auto; width: 65%"
-    > 
+    >         
+      <br />
       <h3>Before You Start</h3>
+      <br />
       <p ws>
         CxJS Quiz is a fun way of assesing your knowldge about CxJS framework, and perhaps an opportunity to learn some new things. 
         There are a couple of quiz modes you can choose between: 
@@ -27,6 +29,8 @@ export default <cx>
         <strong>Standard test</strong> - The same as the Quick test but you have to answer 40 question in 35 minutes.
         <br />
       </p>
+      <hr />
+      <br />
       <h4>Please select a quiz type of your choice:</h4>
 
         <LookupField
@@ -39,8 +43,8 @@ export default <cx>
         />
       <br />
       <br />
-      <TextField label="Question" value-bind="questions.items.q1.question" mode="view" emptyText="n/a" />
-        <Button mod="primary"> Start Quiz!</Button>   
+      <br />
+        <LinkButton mod="primary" href="~/learning" enabled-expr="{test.type.id}"> Start Quiz!</LinkButton>     
    </Section>
 </div>
 </cx>

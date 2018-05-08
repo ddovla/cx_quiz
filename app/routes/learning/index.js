@@ -19,7 +19,7 @@ export default <cx>
 
     <HScroller class="tabs">
       <Repeater records-bind="questions.list">
-        <Tab tab-bind="$record.qid" value-bind="questions.current" mod="line" text-tpl="Question {$record.qid}">
+        <Tab tab-bind="$record.qid" value-bind="questions.current" mod="line" text-tpl="{$record.qid}">
         </Tab>
       </Repeater>
     </HScroller>
@@ -44,15 +44,36 @@ export default <cx>
           </Repeater>
           <br />
           <hr />
-          <Text value-tpl="You have choosen: {mainRecord.answered}!" />
-        </div>
+          <div visible-expr="{questions.showA}">
+            <Text value={computable("mainRecord.answered", "mainRecord.correct", (a,b) => a==b ? "CORRECT!" : "Incorrect!")} />              
+            <div>
+            <br />
+            <Text value-tpl="Your answer: {mainRecord.answered}!" />
+            <br />
+            <Text value-tpl="Correct answer: {mainRecord.correct}!" />
+            <br />
+            <br />
+            <Text value-tpl="Explanation: {mainRecord.rationale}!" />
+          </div>
+          </div>
+        </div> 
       </div>
     </Sandbox> 
 
-    <div class="tabs">
-        <Button mode="hollow" onClick="goToPreviousQ" style="width:100px"> Previous </Button>
-        <Button mode="hollow" onClick="goToNextQ" style="width:100px"> Next </Button>
+{/* Learning mode */}
+    <div class="tabs" visible-expr="{test.type.id}=='learn'">
+        <Button mode="hollow" onClick="showA" style="width:100px" visible-expr="!{questions.showA}"> Check </Button>
+        <Button mode="hollow" onClick="goToPreviousQ" visible-expr="{questions.showA}" enabled-expr="!({questions.current}=='Q1')" style="width:100px"> Previous </Button>
+        <Button mode="hollow" onClick="goToNextQ" visible-expr="({questions.showA} && {questions.current}!='Q7')" style="width:100px"> Next </Button>  
     </div>
+
+{/* Quiz mode */}
+    <div class="tabs" visible-expr="!({test.type.id}=='learn')">
+        <Button mode="hollow" onClick="goToPreviousQ" enabled-expr="!({questions.current}=='Q1')" style="width:100px"> Previous </Button>
+        <Button mode="hollow" onClick="goToNextQ" visible-expr="!({questions.current}=='Q7')" style="width:100px"> Next </Button>
+        <Button mod="primary" onClick="" style="width:200px" visible-expr="({questions.current}=='Q7')"> Submit answers </Button>
+    </div>
+
 
     {/* <Repeater records-bind="questions.items" recordAlias="mainRecord">
       <div controller={uController}>

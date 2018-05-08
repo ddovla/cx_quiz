@@ -1,5 +1,6 @@
 import { Controller } from 'cx/ui';
 import { mockQuestions } from "app/data/mockQuestions";
+import { MsgBox } from 'cx/widgets';
 
 export default class extends Controller {
     init() {
@@ -15,6 +16,7 @@ export default class extends Controller {
         //this.store.init("test.type.id", "standard");
         this.store.init("timer", { start: "0" });
         this.store.init("questions.current", "Q1");
+        this.store.init("questions.showA", false);
 
 
         let list = [];
@@ -30,8 +32,14 @@ export default class extends Controller {
     goToPreviousQ() {
         let cQ = this.store.get("questions.current");
         let tempQ=cQ.replace("Q","") - 1;
-        let newQ = "Q" + tempQ;
-        this.store.set("questions.current", newQ);
+        if (tempQ>=1){
+            let newQ = "Q" + tempQ;
+            this.store.set("questions.current", newQ);
+            this.store.set("questions.showA", false);
+        }
+        else {
+            MsgBox.alert("You've reached the first question!");
+        }
     }
 
     goToNextQ() {
@@ -39,5 +47,12 @@ export default class extends Controller {
         let tempQ=cQ.replace("Q","") - 2 + 3;
         let newQ = "Q" + tempQ;
         this.store.set("questions.current", newQ);
+        this.store.set("questions.showA", false);
     }
+
+    showA() {
+        this.store.set("questions.showA", true);
+    }
+
+
 } 
